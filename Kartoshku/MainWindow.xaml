@@ -1,0 +1,54 @@
+﻿<Window x:Class="Kartoshku.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kartoshku"
+        mc:Ignorable="d"
+        Title="Библеотека котиков" Height="600" Width="800">
+    <StackPanel Margin="0,0,0,-6" Background="DarkOliveGreen">
+
+        <ScrollViewer Height="400">
+            <ItemsControl x:Name="BookPanel" Background="DarkSeaGreen" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10" 
+                        MouseEnter="StackPanel_MouseEnter"
+                        MouseLeave="StackPanel_MouseLeave"
+                        MouseDown="StackPanel_MouseDown"
+                        >
+                            <Image Source="{Binding Cover}" Width="100" Height="140"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" TextAlignment="Center" Width="70"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="20" Height="80" Width="750" Background="White">
+            <TextBlock x:Name="txtName" Text="Имя котика: "/>
+            <TextBlock x:Name="txtYear" Text="Годики котика: "/>
+            <TextBlock x:Name="txtPrice" Text="Цена котика: "/>
+            <TextBlock x:Name="txtCount" Text="Кол-во котиков: "/>
+            <TextBlock x:Name="txtTaken" Text="Кол-во котиков на руках: "/>
+        </StackPanel>
+
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="40" Width="400" >
+            <Button Content="Добавить кота" Click="Add_Click" Margin="5" />
+            <Button Content="Удалить кота" Click="Del_Click" Margin="5"/>
+            <Button Content="Выдать кота" Click="Delif_Click" Margin="5"/>
+            <Button Content="Вернуть кота" Click="Addlif_Click" Margin="5"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>
